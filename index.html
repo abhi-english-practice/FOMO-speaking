@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reading8 · FOMO &amp; Doomscrolling</title>
+<style>
+:root{--paper:#f7f7ef;--ink:#252e24;--muted:#60705d;--line:#dbe1ce;--lime:#d4ed91;--deep:#435c28;--soft:#f2f7e7;--gold:#ffdf75;--warm:#fffaf0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#242e28;color:var(--ink);font:15.5px/1.7 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}button,input,select,textarea{font:inherit}button,select{cursor:pointer;color:var(--ink);background:#fff;border:1px solid #acb99d;padding:9px 12px;border-radius:9px}button:hover,select:hover{border-color:#719049;background:#f4fae9}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #b6ce7a;outline-offset:2px}button:disabled{opacity:.42;cursor:not-allowed}.primary{background:var(--lime);border-color:#99b56a;font-weight:700}.primary:hover{background:#c6e585}.active{background:var(--lime)!important;border-color:#94ad5b!important;font-weight:750}.icon-btn{font-size:13px}.wrapper{max-width:1430px;background:var(--paper);margin:22px auto;border:1px solid #1b211a;border-radius:15px;box-shadow:0 18px 50px #0004;overflow:hidden}.top{padding:24px 31px 22px;border-bottom:2px solid #252f23}.eyebrow{font-size:11px;font-weight:800;letter-spacing:2.1px;color:#56743a}.heading-row{display:flex;justify-content:space-between;align-items:flex-end;gap:15px;flex-wrap:wrap}h1{font:700 clamp(31px,4.8vw,59px)/1.06 Georgia,"Times New Roman",serif;margin:9px 0 5px;letter-spacing:-.03em}h2{font:700 23px Georgia,serif;margin:0 0 8px}h3{font:700 17px Georgia,serif;margin:0}.subtitle{margin:0;color:var(--muted);font-size:15px}.chip{border:1px solid #b1c696;background:#eaf2d9;border-radius:99px;font-size:12px;font-weight:750;padding:3px 10px;color:#42612c}.nav{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-top:20px}.nav button{min-width:138px}.switch{display:flex;align-items:center;gap:7px;color:#4d5c48;font-size:13px}.switch input{accent-color:#5b7c36;width:17px;height:17px}.lesson-selector{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-top:15px}.lesson-selector .lesson-btn{font-weight:700}.lesson-btn small{font-size:11px;font-weight:600;color:#59704b}.audio-bar{background:#e8eedf;border:1px solid #cbd9be;border-radius:12px;padding:16px;margin-top:19px}.audio-controls{display:flex;align-items:center;flex-wrap:wrap;gap:8px}.audio-controls select{font-size:13px;max-width:265px}.audio-controls .title{font-weight:750;margin-right:auto}.audio-controls button{min-width:75px}.audio-status{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#536749;font-size:12.5px;margin-top:10px}.meter{height:6px;margin-top:13px;background:#cbdaaf;border-radius:8px;overflow:hidden}.meter-fill{height:100%;background:#618636;width:0%;transition:width .2s ease}.body{padding:22px 27px 35px}.two-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(290px,365px);gap:18px;align-items:start}.panel{background:#fffefa;border:1px solid var(--line);border-radius:11px;padding:19px;margin-bottom:16px}.panel-head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.topic{font-size:11px;letter-spacing:1.2px;color:#6c8251;font-weight:800}.cue{background:#f2f5ea;border-left:4px solid #96ac67;padding:14px 17px;border-radius:4px;margin-bottom:17px}.cue .cue-title{font-size:18px;font-weight:750;line-height:1.42;margin:6px 0 8px}.cue ul{margin:7px 0 8px;padding-left:23px}.cue li{padding:2px 0}.cue p{margin:7px 0 0}.read-toolbar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:14px 0}.read-toolbar button{font-size:13px;padding:6px 9px}.hint{color:var(--muted);font-size:12.5px}.paragraph{font-size:17.2px;line-height:2.02;margin:0 0 19px;letter-spacing:.005em}.sentence{border-radius:3px;cursor:pointer;box-decoration-break:clone;-webkit-box-decoration-break:clone;transition:background-color .06s ease,color .06s ease}.sentence.current{background:var(--gold);color:#29220f;box-shadow:0 0 0 3px var(--gold)}.sentence:focus-visible{outline:2px solid #537b36}.colloc{font-weight:750;color:inherit;background:linear-gradient(to top,#d9eea4 43%,transparent 44%);text-underline-offset:3px;text-decoration:underline;text-decoration-thickness:1.6px;text-decoration-color:#6f913c;cursor:pointer}.colloc:hover,.colloc:focus-visible{background:#badd86;outline:2px solid #a1b974;outline-offset:2px}.sentence.current .colloc{background:transparent;text-decoration-color:#7a652d}.notes{position:sticky;top:12px;border:1px solid #b9c89a;border-radius:12px;background:var(--warm);overflow:hidden}.notes-header{background:#eff4e4;border-bottom:1px solid var(--line);padding:16px}.notes-header p{margin:4px 0 0;font-size:12.5px;color:#5b6a51}.notes-header h2{margin:0}.note-tools{padding:10px 12px;border-bottom:1px solid var(--line)}.note-tools select,.note-tools input{width:100%;font-size:13px;margin-bottom:7px;padding:7px 8px}.notes-list{padding:10px;max-height:65vh;overflow-y:auto;scrollbar-color:#a8c184 transparent}.note{border:1px solid #e1e7d5;background:#fff;border-radius:9px;padding:11px 12px;margin-bottom:8px;cursor:pointer}.note:hover{border-color:#93a96f}.note.selected{background:#f0f7de;border-color:#8da65e;box-shadow:inset 4px 0 #84a654}.note-top{display:flex;align-items:start;justify-content:space-between;gap:6px}.note-top h3{font-size:16px;line-height:1.28;max-width:100%;overflow-wrap:anywhere}.note-label{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:#63784f;margin:7px 0 1px}.note-english{font-size:13px;color:#354936;line-height:1.55;margin:3px 0}.note-vi{font-size:13px;color:#855c3c;line-height:1.55}.note-pattern{background:#f6f9ed;border-left:3px solid #b1cc76;padding:6px 8px;font-size:12.5px;margin:7px 0}.note-actions{display:flex;gap:5px;justify-content:space-between;align-items:center;margin-top:8px}.note-actions button{font-size:11px;padding:3px 7px}.tag{display:inline-block;font-size:10px;font-weight:750;padding:2px 6px;border-radius:5px;background:#e4f0c5;color:#547036;white-space:nowrap}.tag.plain{background:#ecebe6;color:#73736c}.practice-wrap{max-width:990px;margin:0 auto}.practice-intro{margin-bottom:20px}.practice-tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:15px 0}.practice-tools select{max-width:100%}.bank,.answer-zone{min-height:86px;display:flex;flex-wrap:wrap;align-content:flex-start;gap:7px;border:1.5px dashed #a5b99b;background:#fafcf6;padding:13px;border-radius:10px;margin:10px 0}.answer-zone{background:#edf5dc}.bank button,.answer-zone button{padding:6px 10px;font-size:14px;line-height:1.5}.practice-action{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.feedback{min-height:22px;font-weight:700;margin:10px 0;color:#527329}.feedback.bad{color:#92512b}.reveal,.lesson-tips{background:#f1f5e8;border:1px solid #d8e2c9;padding:13px;border-radius:9px}.reveal{margin:12px 0}.typing{width:100%;min-height:125px;padding:12px;border:1px solid #bccbb0;border-radius:9px;resize:vertical}.progress{font-size:12px;color:#607253}.study-note{border-left:3px solid #b7cf8c;padding:10px 13px;color:#5a654f;font-size:13px;background:#f5f9ed;margin-top:16px}.flow-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:13px}.flow-box{background:#fbfdf5;border:1px solid #d6e4c4;padding:12px;border-radius:9px;font-size:12.5px}.flow-box b{display:block;font-family:Georgia,serif;font-size:15px;color:#3d5e2c;margin-bottom:6px}.footer{padding:17px 25px;border-top:1px solid var(--line);text-align:center;color:#62705e;font-size:12.5px}.is-hidden,[hidden]{display:none!important}
+@media(max-width:1000px){.two-cols{grid-template-columns:1fr}.notes{position:static}.notes-list{max-height:460px}.flow-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){.wrapper{margin:6px;border-radius:8px}.top{padding:20px 16px}.body{padding:14px 12px 23px}h1{font-size:34px}.panel{padding:15px}.paragraph{font-size:16px}.audio-controls select{max-width:100%}.audio-controls .title{width:100%}.nav button{min-width:0;flex:1}.flow-grid{grid-template-columns:1fr}.notes-list{max-height:440px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.meter-fill{transition:none}}
+
+/* Editorial beige & charcoal theme — inspired by the supplied visual reference */
+:root{
+  --paper:#fffdfa;
+  --ink:#30302f;
+  --muted:#77716b;
+  --line:#e7e0d8;
+  --lime:#d9c8ba;
+  --deep:#2a2928;
+  --soft:#f7f3ef;
+  --gold:#f5df9e;
+  --warm:#faf8f5;
+}
+html{scroll-behavior:smooth}
+body{background:#f7f4f0;color:var(--ink);font:15.5px/1.78 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+.wrapper{max-width:1440px;background:#fff;margin:0 auto;border:0;border-radius:0;box-shadow:0 10px 35px #352c2413;overflow:visible;min-height:100vh}
+.masthead{min-height:92px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:13px clamp(26px,5vw,72px);background:#202020;color:#fff}
+.brand{font:normal 41px/.92 Georgia,'Times New Roman',serif;letter-spacing:-.045em;display:flex;flex-direction:column;align-items:flex-start}
+.brand small{font:600 9px/1.1 Arial,sans-serif;letter-spacing:1.8px;margin-top:6px;margin-left:4px}
+.mast-meta{font:500 12px/1.4 Arial,sans-serif;display:flex;gap:34px;align-items:center;letter-spacing:.03em;color:#eee9e4}
+.mast-meta span+span{opacity:.73}
+.top{padding:0;background:#fff;border-bottom:1px solid #e7e0d8}
+.hero{background:linear-gradient(110deg,#d6c6b8 0%,#e4d7c9 45%,#d6c1ad 100%);padding:58px clamp(25px,5vw,72px) 60px;display:grid;grid-template-columns:minmax(0,660px) minmax(230px,1fr);gap:4%;align-items:center;min-height:380px;position:relative;isolation:isolate;overflow:hidden}
+.hero:before{content:"";inset:0;position:absolute;z-index:-1;opacity:.17;background:radial-gradient(ellipse at 78% 20%,#fff 0%,transparent 52%),repeating-linear-gradient(0deg,transparent 0 33px,#95816f20 34px,transparent 35px)}
+.hero-card{padding:37px clamp(24px,3vw,43px) 36px;background:#fff;box-shadow:0 9px 23px #47382d12}
+.eyebrow{font-size:10.5px;font-weight:750;letter-spacing:1.45px;color:#8e837b}
+.heading-row{align-items:flex-start;gap:18px}
+h1{font:400 clamp(39px,4.7vw,64px)/1.08 Georgia,'Times New Roman',serif;letter-spacing:-.034em;margin:15px 0 14px;color:#383736}
+h1 .amp{color:#b9a496}
+.subtitle{font-size:14px;line-height:1.65;max-width:460px;color:#736e69}
+.chip{background:#f5f1ed;border:1px solid #dfd4ca;color:#685b53;padding:4px 11px;border-radius:2px;font-size:11px;font-weight:650}
+.heading-row .chip{margin-top:1px;background:transparent;border:0;border-top:1px solid #b7a093;padding:9px 0 0;color:#8a7970;border-radius:0}
+.hero-aside{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding-left:clamp(5px,3vw,35px);color:#67574c;min-height:240px}
+.hero-rule{height:2px;width:49px;background:#aa8f80;margin-bottom:20px}
+.hero-aside .hero-script{font:italic 31px/1.2 Georgia,serif;max-width:320px;color:#5c5048;letter-spacing:-.02em}
+.hero-aside .hero-caption{margin-top:18px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#8e7b6e}
+.learning-shell{padding:21px clamp(24px,5vw,72px) 25px;background:#fff}
+.lesson-selector{margin:0 0 15px;border-bottom:1px solid #e9e5e0;padding:0 0 16px;gap:11px}
+.lesson-selector .lesson-btn{font-weight:650;min-width:163px}
+.nav{gap:10px;margin:0 0 21px}
+.nav button{min-width:145px}
+button,select{background:#fff;color:#373532;border:1px solid #c8beb6;border-radius:1px;padding:9px 13px;transition:background .15s,border-color .15s,color .15s}
+button:hover,select:hover{background:#f5f0ec;border-color:#9d897e}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #c3a99b;outline-offset:3px}
+button:disabled{opacity:.47}
+button.primary,.primary,.active{background:#2c2b2a!important;color:#fff!important;border-color:#2c2b2a!important;font-weight:700}
+button.primary:hover,.primary:hover,.active:hover{background:#45413e!important;border-color:#45413e!important}
+.lesson-btn small{color:#8d8178}
+.switch{color:#655e58}
+.switch input{accent-color:#514a44}
+.audio-bar{background:#f6f2ee;border:1px solid #e4d9cf;border-radius:2px;padding:16px 18px;margin:0}
+.audio-controls .title{color:#49443f;font-weight:650}
+.audio-controls button{min-width:75px}
+.audio-status{color:#7b7067}
+.meter{background:#e8dfd7;border-radius:0;height:5px}
+.meter-fill{background:#ae9280;border-radius:0}
+.body{padding:45px clamp(24px,5vw,72px) 60px;background:#fff}
+.two-cols{grid-template-columns:minmax(0,1fr) minmax(280px,350px);gap:32px}
+.panel{background:#fff;border:0;border-radius:0;padding:0;margin-bottom:22px}
+.panel-head{border-bottom:1px solid #eee9e4;padding:0 0 15px;margin-bottom:16px}
+h2{font:400 30px/1.2 Georgia,'Times New Roman',serif;color:#343231;letter-spacing:-.024em}
+h3{font:500 18px/1.25 Georgia,'Times New Roman',serif;color:#393633}
+.topic{color:#9d8576;font-size:10px;letter-spacing:1.5px}
+.cue{background:#f8f5f1;border-left:3px solid #b29a8b;padding:22px 25px;border-radius:0;margin:23px 0 26px}
+.cue-title{font-family:Georgia,serif!important;font-weight:400!important;font-size:22px!important}
+.cue li{padding:1px 0}
+.read-toolbar{margin:17px 0 20px}
+.read-toolbar button{font-size:12px;padding:8px 11px}
+.hint,.progress{color:#80766e}
+.paragraph{font-size:17px;line-height:2.12;color:#3e3b38}
+.sentence{border-radius:1px}
+.sentence.current{background:#f4d998;color:#2b2825;box-shadow:0 0 0 3px #f4d998}
+.sentence:focus-visible{outline:2px solid #7e6454}
+.colloc{color:inherit;font-weight:750;background:linear-gradient(to top,#ead9c6 43%,transparent 44%);text-decoration-color:#947969;text-decoration-thickness:1.5px}
+.colloc:hover,.colloc:focus-visible{background:#ebd4bc;outline:2px solid #c9ae9a}
+.sentence.current .colloc{background:transparent;text-decoration-color:#8d7761}
+.notes{position:sticky;top:14px;background:#f9f7f4;border:1px solid #e2d9d0;border-radius:0;overflow:hidden}
+.notes-header{background:#ede4dc;border-bottom:1px solid #ded1c5;padding:25px 22px 18px}
+.notes-header h2{font-size:27px}
+.notes-header p{color:#776b63}
+.note-tools{padding:13px 14px;border-bottom:1px solid #e2d9d0}
+.note-tools input,.note-tools select{font:13px system-ui,sans-serif;width:100%;background:#fff;padding:10px 12px;border:1px solid #d7cbc0;border-radius:1px}
+.notes-list{padding:14px;max-height:70vh;scrollbar-color:#bba492 transparent}
+.note{border:1px solid #e6dcd3;background:#fff;border-radius:1px;padding:14px;margin-bottom:10px}
+.note:hover{border-color:#aa9383}
+.note.selected{background:#f6f0e9;border-color:#b09683;box-shadow:inset 3px 0 #ad8b76}
+.note-top h3{font:600 18px/1.28 Georgia,serif}
+.note-label{color:#897469}
+.note-english{color:#4f4741}
+.note-vi{color:#866b56}
+.note-pattern{background:#f7f3ef;border-left:3px solid #c5aa95;font-size:12.5px}
+.tag{color:#6c5041;background:#e9dbce;border-radius:2px}
+.tag.plain{background:#f1eeeb;color:#81776e}
+.note-actions button{font-size:11px}
+.study-note{background:#faf7f3;border-left:3px solid #bca18c;color:#766d66;padding:11px 14px}
+.practice-wrap{max-width:1080px}
+.practice-wrap>.panel{padding:28px 31px;border:1px solid #e7e0d8;margin-bottom:24px}
+.practice-tools{gap:10px}
+.bank,.answer-zone{background:#fbf9f6;border:1.5px dashed #d3c3b7;border-radius:1px;min-height:94px}
+.answer-zone{background:#f5efe9}
+.feedback{color:#436046}.feedback.bad{color:#9b513c}
+.reveal,.lesson-tips{background:#f6f0e9;border:1px solid #e3d8ce;border-radius:1px}
+.typing{border:1px solid #c7b6a8;border-radius:1px}
+.flow-grid{gap:12px}
+.flow-box{background:#f8f5f1;border:1px solid #e2d8d0;border-radius:1px;padding:17px}
+.flow-box b{font-size:16px;color:#765e50}
+.footer{display:none}
+@media(max-width:1020px){.two-cols{grid-template-columns:1fr;gap:22px}.notes{position:static}.notes-list{max-height:470px}.hero{grid-template-columns:1fr minmax(160px,.42fr);gap:18px}.hero-aside .hero-script{font-size:24px}}
+@media(max-width:700px){.masthead{min-height:79px;padding:14px 19px}.brand{font-size:34px}.mast-meta{gap:10px;font-size:10px}.mast-meta span:nth-child(2){display:none}.hero{grid-template-columns:1fr;padding:31px 19px 34px;min-height:0}.hero-card{padding:27px 24px 25px}.hero-aside{display:none}.heading-row{display:block}.heading-row .chip{display:inline-block;margin:9px 0 0}.learning-shell{padding:20px 15px 24px}.lesson-selector .lesson-btn{min-width:0;flex:1}.nav button{min-width:0;flex:1}.audio-controls .title{width:100%}.audio-controls select{max-width:100%}.body{padding:26px 18px 38px}.paragraph{font-size:16px;line-height:2}.panel-head h2{font-size:27px}.notes-list{max-height:490px}.practice-wrap>.panel{padding:19px 16px}.flow-grid{grid-template-columns:1fr}h1{font-size:40px}}
+
+
+/* Playback highlight: exactly one complete sentence; never word-level. */
+:root{--pink:#f8b8d2;--pink-dark:#c54c7d}
+.sentence.current,.sentence.current .colloc{background:#f8b8d2!important;color:#362335!important;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+.sentence.current{box-shadow:0 0 0 4px #f8b8d2;transition:background .05s linear;}
+.sentence.current .colloc{text-decoration-color:#923b65!important;}
+.sentence{scroll-margin-top:150px;}
+.audio-bar{border-color:#e7ccd6;background:#fbf6f7;}
+.meter-fill{background:#cb6c96!important;transition:width .08s linear}
+#scrubber{appearance:none;display:block;width:100%;height:8px;background:transparent;margin:2px 0 5px;cursor:pointer;position:relative;z-index:1}
+#scrubber::-webkit-slider-runnable-track{height:6px;border-radius:1px;background:linear-gradient(to right,#cc739b 0%,#e7d3da 0%)}
+#scrubber::-webkit-slider-thumb{appearance:none;width:15px;height:15px;border:2px solid white;border-radius:50%;background:#b44879;margin-top:-5px;box-shadow:0 0 0 1px #b44879}
+#scrubber::-moz-range-track{height:6px;background:#e7d3da}
+#scrubber::-moz-range-thumb{width:13px;height:13px;border:2px solid white;border-radius:50%;background:#b44879}
+.audio-seek{display:flex;gap:9px;align-items:center;margin-top:14px}.audio-seek input{flex:1;min-width:80px}.audio-time{font-size:12px;color:#76686e;font-variant-numeric:tabular-nums;white-space:nowrap}
+.meter{display:none}.audio-controls .title{width:auto}
+@media(max-width:700px){.audio-controls .title{width:100%}}
+
+</style></head>
+<body><main class="wrapper">
+<div class="masthead"><div class="brand" aria-label="Reading8 Speaking Studio">Reading8.<small>SPEAKING STUDIO</small></div><div class="mast-meta"><span>IELTS SPEAKING</span><span>DIGITAL WELL-BEING</span><span>PART 2</span></div></div>
+<header class="top"><div class="hero"><div class="hero-card">
+<div class="eyebrow">IELTS SPEAKING PART 2 · DIGITAL LIFE</div>
+<div class="heading-row"><div><h1>FOMO <span class="amp">&amp;</span> Doomscrolling</h1><p class="subtitle">Two speaking stories · original audio · collocations in context</p></div></div>
+</div><div class="hero-aside" aria-hidden="true"><div class="hero-rule"></div><div class="hero-script">Listen closely.<br>Speak naturally.</div></div></div><div class="learning-shell">
+<div class="lesson-selector" role="group" aria-label="Choose a lesson"><button class="lesson-btn active" data-lesson="fomo">01 · FOMO</button><button class="lesson-btn" data-lesson="doomscrolling">02 · Doomscrolling</button></div>
+<nav class="nav" aria-label="Learning sections"><button class="active" data-tab="reading">Read &amp; Listen</button><button data-tab="practice">Sentence Practice</button><button id="resetBtn">Reset practice</button></nav>
+<div class="audio-bar" aria-label="Sentence-by-sentence voice reader">
+<div class="audio-controls"><span class="title">Original audio · pink sentence highlight</span><button class="primary" id="playBtn">▶ Play</button><button id="stopBtn">■ Stop</button><label class="switch">Speed <select id="speedSelect"><option value="0.85">0.85×</option><option value="1" selected>1×</option><option value="1.12">1.12×</option><option value="1.25">1.25×</option></select></label></div>
+<div class="audio-seek"><input id="scrubber" type="range" min="0" max="1000" value="0" aria-label="Seek audio playback"><span id="timeLabel" class="audio-time">0:00 / 0:00</span></div><div class="meter" aria-hidden="true"><div class="meter-fill" id="meter"></div></div><audio id="lessonAudio" preload="metadata"></audio>
+<div class="audio-status"><span id="audioState" aria-live="polite">Press Play to listen to the recording. The current sentence turns pink.</span><label class="switch"><input id="autofollow" type="checkbox" checked>Auto-follow sentence</label></div>
+</div>
+</div></header>
+<div class="body">
+<section id="readingTab"><div class="two-cols"><div><div class="panel"><div class="panel-head"><h2 id="lessonHeading">01 · FOMO</h2><span class="chip" id="countChip"></span></div><div class="cue"><div class="topic">IELTS SPEAKING PART 2 · CUE CARD</div><div class="cue-title" id="cueTitle"></div><div>You should say:</div><ul id="cuePoints"></ul><p id="cueExplain"></p></div><div class="panel-head"><h2>Read &amp; listen</h2><span class="progress" id="sentenceCount"></span></div><div class="read-toolbar"><button id="viBtn">Show Vietnamese notes</button><span class="hint">Click an <b>underlined expression</b> for its explanation; click a sentence to hear it.</span></div><div id="transcript"></div></div></div>
+<aside class="notes" aria-label="Collocation notes"><div class="notes-header"><h2>Collocation Notes</h2><p id="notesTotal"></p><p>Simple English explanation · grammar pattern · usage tip · optional Vietnamese</p></div><div class="note-tools"><input id="noteSearch" type="search" placeholder="Search collocations or explanations…" aria-label="Search collocations"><select id="noteFilter" aria-label="Filter collocations"><option value="all">All useful expressions</option><option value="priority">★ Speaking priority only</option><option value="phrasal">Phrasal verbs &amp; idiomatic verbs</option><option value="adverb">Verb + adverb / adverb + adjective</option></select></div><div id="notesList" class="notes-list"></div></aside></div></section>
+<section id="practiceTab" hidden><div class="practice-wrap"><div class="panel"><div class="panel-head"><h2>Sentence Practice</h2><span class="chip">Chunks shuffled · answer hidden</span></div><p class="hint practice-intro">Rebuild the sentence using shuffled chunks. The original is hidden until you reveal it.</p><div class="practice-tools"><label>Sentence <select id="sentenceSelect" aria-label="Choose practice sentence"></select></label><button id="buildMode" class="active">Build chunks</button><button id="typeMode">Type sentence</button><button id="listenSentence">🔊 Hear sentence</button></div><p id="practiceLabel" class="progress"></p><div id="answerZone" class="answer-zone" aria-label="Your selected chunks"></div><div id="chunkBank" class="bank" aria-label="Shuffled chunks"></div><textarea id="typedSentence" class="typing" placeholder="Type the complete sentence here…" hidden></textarea><p id="feedback" class="feedback" aria-live="polite"></p><div class="practice-action"><button id="previousBtn">← Previous</button><button class="primary" id="checkBtn">Check</button><button id="clearBtn">Clear</button><button id="hintBtn">Show hint</button><button id="revealBtn">Show answer</button><button id="nextBtn">Next →</button></div><p id="hintText" class="reveal" hidden></p><p id="revealText" class="reveal" hidden></p><p id="practiceProgress" class="progress"></p></div>
+<div class="panel"><h2>Speaking flow · 5 steps</h2><p class="hint">Reuse the same story structure to speak spontaneously; you do not need to memorise every sentence.</p><div class="flow-grid" id="speakingFlow"></div></div></div></section>
+</div>
+</main>
+<script>
+const LESSONS=[
+  {
+    "id": "fomo",
+    "title": "FOMO",
+    "subtitle": "When social media makes you feel left out",
+    "topic": "SOCIAL COMPARISON · DIGITAL LIFE",
+    "cue": "Describe a time when social media made you feel that you were missing out on something.",
+    "bullets": [
+      "When it happened",
+      "What you saw on social media",
+      "How it made you feel"
+    ],
+    "explain": "And explain what you did to deal with that feeling.",
+    "sentences": [
+      {
+        "text": "I'd like to talk about a time when I experienced FOMO, or the fear of missing out, without even realizing it at first.",
+        "para": 0,
+        "start": 0
+      },
+      {
+        "text": "It happened a few months ago when I noticed that I was constantly looking at my phone, particularly during my free time.",
+        "para": 1,
+        "start": 8.41
+      },
+      {
+        "text": "I developed this habit of checking my apps almost automatically, just to keep up with what people were up to.",
+        "para": 1,
+        "start": 15.48
+      },
+      {
+        "text": "I remember one particular weekend when I was scrolling through Instagram and came across photos of my friends traveling, attending concerts, and having what looked like an amazing time.",
+        "para": 2,
+        "start": 22.55
+      },
+      {
+        "text": "Meanwhile, I was just sitting at home doing absolutely nothing exciting.",
+        "para": 2,
+        "start": 32.4
+      },
+      {
+        "text": "Although I knew that social media only showed a carefully curated version of people's lives, I couldn't help feeling that everyone else was having more fun than I was.",
+        "para": 3,
+        "start": 37.99
+      },
+      {
+        "text": "The strange thing was that the more I tried to stay connected twenty-four seven, the more disconnected I felt from my own life.",
+        "para": 4,
+        "start": 47.47
+      },
+      {
+        "text": "I was practically glued to my screen, comparing my ordinary moments with everyone else's highlights.",
+        "para": 4,
+        "start": 54.92
+      },
+      {
+        "text": "Eventually, I realized I was missing out on what was happening right in front of me because I was so busy worrying about what other people were doing.",
+        "para": 5,
+        "start": 61.19
+      },
+      {
+        "text": "So I started limiting my screen time and making a conscious effort to pay attention to the people around me.",
+        "para": 6,
+        "start": 69.06
+      },
+      {
+        "text": "I also began spending more time with friends face to face rather than just following their lives online.",
+        "para": 6,
+        "start": 74.98
+      },
+      {
+        "text": "Looking back, that experience taught me something quite valuable.",
+        "para": 7,
+        "start": 81.44
+      },
+      {
+        "text": "Being constantly connected doesn't necessarily mean being genuinely fulfilled.",
+        "para": 7,
+        "start": 85.53
+      },
+      {
+        "text": "Sometimes, the best way to stop missing out is simply to appreciate what you already have.",
+        "para": 7,
+        "start": 90.64
+      }
+    ],
+    "notes": [
+      {
+        "phrase": "fear of missing out",
+        "kind": "Noun phrase",
+        "meaning": "The uneasy feeling that other people are enjoying experiences you are not part of.",
+        "vi": "Nỗi sợ bỏ lỡ những trải nghiệm của người khác.",
+        "pattern": "the fear of missing out (on + noun)",
+        "usage": "Use FOMO as the informal abbreviation; it is common in discussions of social media.",
+        "priority": true
+      },
+      {
+        "phrase": "without even realizing it",
+        "kind": "Adverbial chunk",
+        "meaning": "Without being aware that something is happening.",
+        "vi": "Mà thậm chí không nhận ra điều đó.",
+        "pattern": "do something without even realising it",
+        "usage": "Natural when describing an unconscious habit.",
+        "priority": false
+      },
+      {
+        "phrase": "constantly looking at my phone",
+        "kind": "Verb + adverb",
+        "meaning": "Repeatedly checking a phone throughout the day.",
+        "vi": "Liên tục nhìn hoặc kiểm tra điện thoại.",
+        "pattern": "constantly + verb-ing / constantly + base verb",
+        "usage": "The adverb constantly emphasises frequency, often with slight criticism.",
+        "priority": true
+      },
+      {
+        "phrase": "checking my apps",
+        "kind": "Verb + object",
+        "meaning": "Opening applications to look for updates or messages.",
+        "vi": "Kiểm tra các ứng dụng.",
+        "pattern": "check + apps / messages / notifications",
+        "usage": "A natural alternative to checking social media.",
+        "priority": false
+      },
+      {
+        "phrase": "keep up with what people were up to",
+        "kind": "Phrasal verb",
+        "meaning": "Follow what other people are doing in their lives.",
+        "vi": "Cập nhật xem mọi người đang làm gì.",
+        "pattern": "keep up with + noun / what-clause",
+        "usage": "Be careful: keep up with, not keep on with.",
+        "priority": true
+      },
+      {
+        "phrase": "scrolling through Instagram",
+        "kind": "Phrasal verb",
+        "meaning": "Moving through Instagram posts on a screen.",
+        "vi": "Lướt qua các bài đăng trên Instagram.",
+        "pattern": "scroll through + platform / feed",
+        "usage": "Common with Instagram, Facebook, and social media feeds.",
+        "priority": true
+      },
+      {
+        "phrase": "came across photos",
+        "kind": "Phrasal verb",
+        "meaning": "Found some photos unexpectedly.",
+        "vi": "Tình cờ bắt gặp những bức ảnh.",
+        "pattern": "come across + noun",
+        "usage": "Usually implies an accidental discovery.",
+        "priority": true
+      },
+      {
+        "phrase": "a carefully curated version of people's lives",
+        "kind": "Descriptive chunk",
+        "meaning": "An edited selection of the best moments from someone's life.",
+        "vi": "Phiên bản cuộc sống được chọn lọc kỹ để đăng tải.",
+        "pattern": "a carefully curated version of + noun",
+        "usage": "Useful for arguing that social-media posts do not represent everyday reality.",
+        "priority": true
+      },
+      {
+        "phrase": "couldn't help feeling",
+        "kind": "Verb pattern",
+        "meaning": "Could not stop yourself from having a feeling.",
+        "vi": "Không thể không cảm thấy.",
+        "pattern": "cannot help + verb-ing",
+        "usage": "Use verb-ing after cannot help, not an infinitive.",
+        "priority": true
+      },
+      {
+        "phrase": "stay connected twenty-four seven",
+        "kind": "Verb + complement",
+        "meaning": "Remain online at all hours.",
+        "vi": "Luôn kết nối mạng 24/7.",
+        "pattern": "stay / remain + adjective",
+        "usage": "24/7 is pronounced twenty-four seven in conversation.",
+        "priority": true
+      },
+      {
+        "phrase": "glued to my screen",
+        "kind": "Adjectival phrase",
+        "meaning": "Unable to stop looking at a screen.",
+        "vi": "Dán mắt vào màn hình.",
+        "pattern": "be glued to + screen / phone / television",
+        "usage": "Informal and vivid: avoid using it repeatedly in the same response.",
+        "priority": true
+      },
+      {
+        "phrase": "missing out on",
+        "kind": "Phrasal verb",
+        "meaning": "Failing to enjoy or experience something worthwhile.",
+        "vi": "Bỏ lỡ một cơ hội hoặc trải nghiệm.",
+        "pattern": "miss out on + noun / verb-ing",
+        "usage": "The preposition on is essential.",
+        "priority": true
+      },
+      {
+        "phrase": "right in front of me",
+        "kind": "Idiomatic chunk",
+        "meaning": "Very close and easy to notice, but overlooked.",
+        "vi": "Ngay trước mắt mình.",
+        "pattern": "right in front of + person",
+        "usage": "Emphasises something you have neglected despite its closeness.",
+        "priority": false
+      },
+      {
+        "phrase": "making a conscious effort to",
+        "kind": "Verb–noun collocation",
+        "meaning": "Deliberately trying to change or achieve something.",
+        "vi": "Chủ động, có ý thức cố gắng làm gì.",
+        "pattern": "make a conscious effort to + verb",
+        "usage": "Stronger and more precise than just try.",
+        "priority": true
+      },
+      {
+        "phrase": "pay attention to",
+        "kind": "Verb–noun collocation",
+        "meaning": "Focus on or notice someone or something.",
+        "vi": "Chú ý đến ai hoặc điều gì.",
+        "pattern": "pay attention to + noun / verb-ing",
+        "usage": "Never say pay attention for someone.",
+        "priority": true
+      },
+      {
+        "phrase": "face to face",
+        "kind": "Adverbial expression",
+        "meaning": "In person, rather than through a screen.",
+        "vi": "Trực tiếp, mặt đối mặt.",
+        "pattern": "meet / talk + face-to-face",
+        "usage": "Use hyphens when the expression modifies a noun: face-to-face communication.",
+        "priority": false
+      },
+      {
+        "phrase": "genuinely fulfilled",
+        "kind": "Adverb + adjective",
+        "meaning": "Truly content or satisfied with your life.",
+        "vi": "Thực sự mãn nguyện, đủ đầy về tinh thần.",
+        "pattern": "feel / be + genuinely fulfilled",
+        "usage": "Fulfilled is more about meaningful satisfaction than short-term excitement.",
+        "priority": true
+      },
+      {
+        "phrase": "appreciate what you already have",
+        "kind": "Verb + object clause",
+        "meaning": "Recognise the value of things already in your life.",
+        "vi": "Trân trọng những điều mình đang có.",
+        "pattern": "appreciate + what-clause",
+        "usage": "A reflective ending that links a story to a broader lesson.",
+        "priority": true
+      }
+    ],
+    "audio": "fomo.mp3"
+  },
+  {
+    "id": "doomscrolling",
+    "title": "Doomscrolling",
+    "subtitle": "When bad news becomes an endless scroll",
+    "topic": "NEWS CONSUMPTION · DIGITAL WELL-BEING",
+    "cue": "Describe a time when you spent too much time scrolling through negative news on social media.",
+    "bullets": [
+      "When it happened",
+      "What kind of content you were looking at",
+      "Why you found it difficult to stop scrolling"
+    ],
+    "explain": "And explain how this experience affected you.",
+    "sentences": [
+      {
+        "text": "I'd like to talk about a time when I fell into the habit of doomscrolling, which basically means endlessly scrolling through negative or distressing news online.",
+        "para": 0,
+        "start": 0
+      },
+      {
+        "text": "It happened a few months ago, when there seemed to be an overwhelming amount of bad news on social media.",
+        "para": 1,
+        "start": 9.7
+      },
+      {
+        "text": "I remember constantly checking my phone, particularly before going to bed, just to keep up with what was going on around the world.",
+        "para": 1,
+        "start": 15.6
+      },
+      {
+        "text": "What started as a quick glance at the headlines gradually turned into a mindless habit.",
+        "para": 2,
+        "start": 22.96
+      },
+      {
+        "text": "I'd read one disturbing story, then another, and before I knew it, I'd spent over an hour glued to my screen.",
+        "para": 2,
+        "start": 28.05
+      },
+      {
+        "text": "The strange thing was that even though the news made me feel increasingly anxious, I somehow couldn't tear myself away.",
+        "para": 3,
+        "start": 35.19
+      },
+      {
+        "text": "I think part of me felt that staying informed would give me a sense of control, but in reality, it was doing the exact opposite.",
+        "para": 3,
+        "start": 42.28
+      },
+      {
+        "text": "Eventually, I realized that this constant exposure to negative information was taking a toll on my mental well-being.",
+        "para": 4,
+        "start": 50.57
+      },
+      {
+        "text": "I was struggling to fall asleep, finding it difficult to pay attention to everyday tasks, and worrying about things completely beyond my control.",
+        "para": 4,
+        "start": 57.18
+      },
+      {
+        "text": "That was when I decided to break the cycle.",
+        "para": 5,
+        "start": 65.72
+      },
+      {
+        "text": "I turned off news notifications, stopped checking social media before bed, and became much more selective about the content I consumed.",
+        "para": 5,
+        "start": 68.23
+      },
+      {
+        "text": "Looking back, I wouldn't say that avoiding the news altogether is the answer.",
+        "para": 6,
+        "start": 76.34
+      },
+      {
+        "text": "But the experience taught me that there's a fine line between staying informed and becoming overwhelmed.",
+        "para": 6,
+        "start": 80.85
+      },
+      {
+        "text": "Sometimes, the healthiest thing you can do is simply put your phone down and give yourself some breathing space.",
+        "para": 6,
+        "start": 86.46
+      }
+    ],
+    "notes": [
+      {
+        "phrase": "fell into the habit of",
+        "kind": "Verb–noun collocation",
+        "meaning": "Gradually started doing something regularly, often without planning to.",
+        "vi": "Dần hình thành một thói quen, thường không chủ ý.",
+        "pattern": "fall into the habit of + verb-ing",
+        "usage": "Used for habits that develop gradually, often undesirable ones.",
+        "priority": true
+      },
+      {
+        "phrase": "doomscrolling",
+        "kind": "Key term",
+        "meaning": "Repeatedly reading upsetting news online even when it feels unpleasant.",
+        "vi": "Lướt liên tục các tin tức tiêu cực.",
+        "pattern": "doomscroll / doomscrolling",
+        "usage": "A useful modern term; define it naturally in Speaking if needed.",
+        "priority": true
+      },
+      {
+        "phrase": "endlessly scrolling through",
+        "kind": "Verb + adverb",
+        "meaning": "Continuing to move through online material for a very long time.",
+        "vi": "Lướt mãi không ngừng qua nội dung trực tuyến.",
+        "pattern": "endlessly + verb-ing + through + noun",
+        "usage": "The adverb endlessly makes the negative habit sound repetitive.",
+        "priority": true
+      },
+      {
+        "phrase": "an overwhelming amount of",
+        "kind": "Quantifier chunk",
+        "meaning": "So much of something that it is difficult to deal with.",
+        "vi": "Một lượng quá lớn, gây choáng ngợp.",
+        "pattern": "an overwhelming amount of + uncountable noun",
+        "usage": "Use number of with countable plural nouns.",
+        "priority": true
+      },
+      {
+        "phrase": "constantly checking my phone",
+        "kind": "Verb + adverb",
+        "meaning": "Looking at the phone again and again.",
+        "vi": "Liên tục kiểm tra điện thoại.",
+        "pattern": "constantly + verb-ing",
+        "usage": "Excellent for describing compulsive technology use.",
+        "priority": true
+      },
+      {
+        "phrase": "keep up with what was going on",
+        "kind": "Phrasal verb",
+        "meaning": "Stay aware of the latest developments.",
+        "vi": "Theo dõi những gì đang diễn ra.",
+        "pattern": "keep up with + what-clause",
+        "usage": "Can refer to news or people; context changes the meaning.",
+        "priority": true
+      },
+      {
+        "phrase": "a quick glance at the headlines",
+        "kind": "Noun phrase",
+        "meaning": "A very brief look at news titles.",
+        "vi": "Liếc nhanh qua các tiêu đề tin tức.",
+        "pattern": "a quick glance at + noun",
+        "usage": "Glance at is a quick look, not prolonged reading.",
+        "priority": false
+      },
+      {
+        "phrase": "turned into a mindless habit",
+        "kind": "Verb–noun chunk",
+        "meaning": "Became an automatic behaviour done without much thought.",
+        "vi": "Trở thành một thói quen vô thức.",
+        "pattern": "turn into + noun phrase",
+        "usage": "Useful for explaining how an innocent action becomes a routine.",
+        "priority": true
+      },
+      {
+        "phrase": "glued to my screen",
+        "kind": "Adjectival phrase",
+        "meaning": "Unable to look away from the screen.",
+        "vi": "Dán mắt vào màn hình.",
+        "pattern": "be glued to + screen",
+        "usage": "An idiomatic way to describe excessive use.",
+        "priority": true
+      },
+      {
+        "phrase": "couldn't tear myself away",
+        "kind": "Idiomatic verb phrase",
+        "meaning": "Found it extremely hard to stop an activity.",
+        "vi": "Không thể dứt ra được.",
+        "pattern": "cannot tear oneself away (from + noun)",
+        "usage": "Change myself to yourself / himself / herself as needed.",
+        "priority": true
+      },
+      {
+        "phrase": "increasingly anxious",
+        "kind": "Adverb + adjective",
+        "meaning": "More and more worried over time.",
+        "vi": "Ngày càng lo lắng.",
+        "pattern": "become / feel + increasingly + adjective",
+        "usage": "Increasingly works naturally with anxious, frustrated, concerned.",
+        "priority": true
+      },
+      {
+        "phrase": "staying informed",
+        "kind": "Verb + adjective",
+        "meaning": "Remaining aware of events and updates.",
+        "vi": "Luôn nắm bắt thông tin.",
+        "pattern": "stay informed about + topic",
+        "usage": "A more balanced expression than constantly checking for updates.",
+        "priority": false
+      },
+      {
+        "phrase": "give me a sense of control",
+        "kind": "Verb–noun collocation",
+        "meaning": "Make me feel I can manage a situation.",
+        "vi": "Mang lại cảm giác kiểm soát tình hình.",
+        "pattern": "give + someone + a sense of + noun",
+        "usage": "Often describes a feeling rather than genuine power.",
+        "priority": true
+      },
+      {
+        "phrase": "taking a toll on my mental well-being",
+        "kind": "Idiomatic verb phrase",
+        "meaning": "Gradually damaging how well I feel psychologically.",
+        "vi": "Dần ảnh hưởng tiêu cực đến sức khỏe tinh thần.",
+        "pattern": "take a toll on + person / thing",
+        "usage": "Strong but natural for describing sustained negative effects.",
+        "priority": true
+      },
+      {
+        "phrase": "struggling to fall asleep",
+        "kind": "Verb pattern",
+        "meaning": "Finding it difficult to begin sleeping.",
+        "vi": "Khó đi vào giấc ngủ.",
+        "pattern": "struggle to + base verb",
+        "usage": "Avoid struggle falling asleep unless using another natural construction.",
+        "priority": false
+      },
+      {
+        "phrase": "pay attention to",
+        "kind": "Verb–noun collocation",
+        "meaning": "Concentrate on a person or task.",
+        "vi": "Tập trung chú ý đến điều gì.",
+        "pattern": "pay attention to + noun / verb-ing",
+        "usage": "Versatile in both Part 2 and Part 3.",
+        "priority": true
+      },
+      {
+        "phrase": "completely beyond my control",
+        "kind": "Adverbial + idiom",
+        "meaning": "Entirely outside my ability to change or influence.",
+        "vi": "Hoàn toàn nằm ngoài tầm kiểm soát.",
+        "pattern": "be beyond + my / your / our + control",
+        "usage": "Completely intensifies the sense of powerlessness.",
+        "priority": true
+      },
+      {
+        "phrase": "break the cycle",
+        "kind": "Verb–noun collocation",
+        "meaning": "Stop a repeated negative pattern.",
+        "vi": "Phá vỡ vòng lặp tiêu cực.",
+        "pattern": "break the cycle of + noun",
+        "usage": "Effective to introduce a turning point in a narrative.",
+        "priority": true
+      },
+      {
+        "phrase": "turned off news notifications",
+        "kind": "Phrasal verb",
+        "meaning": "Disabled alerts about news.",
+        "vi": "Tắt thông báo tin tức.",
+        "pattern": "turn off + notifications / alerts",
+        "usage": "Turn off is separable: turn them off.",
+        "priority": false
+      },
+      {
+        "phrase": "selective about the content I consumed",
+        "kind": "Adjective + complement",
+        "meaning": "Careful about which media or information I chose to see.",
+        "vi": "Chọn lọc hơn đối với nội dung mình tiếp nhận.",
+        "pattern": "be selective about + noun",
+        "usage": "Consume content is idiomatic for watching or reading media.",
+        "priority": true
+      },
+      {
+        "phrase": "a fine line between",
+        "kind": "Noun phrase",
+        "meaning": "A very small difference between two states or choices.",
+        "vi": "Ranh giới rất mong manh giữa hai điều.",
+        "pattern": "a fine line between + noun/-ing and + noun/-ing",
+        "usage": "Especially effective in a balanced reflection.",
+        "priority": true
+      },
+      {
+        "phrase": "staying informed and becoming overwhelmed",
+        "kind": "Parallel verb phrases",
+        "meaning": "Knowing enough without becoming overloaded by information.",
+        "vi": "Giữ cập nhật nhưng không bị quá tải thông tin.",
+        "pattern": "-ing phrase + and + -ing phrase",
+        "usage": "Parallel grammatical forms make this contrast flow naturally.",
+        "priority": false
+      },
+      {
+        "phrase": "give yourself some breathing space",
+        "kind": "Idiomatic verb phrase",
+        "meaning": "Allow yourself time away from stress or pressure.",
+        "vi": "Cho bản thân khoảng nghỉ để thư giãn.",
+        "pattern": "give + someone + some breathing space",
+        "usage": "An idiomatic, humane way to end a response.",
+        "priority": true
+      }
+    ],
+    "audio": "doomscrolling.mp3"
+  }
+];
+const $=id=>document.getElementById(id);
+const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const normalize=s=>s.toLowerCase().replace(/[‘’]/g,"'").replace(/[^\p{L}\p{N}' ]/gu,' ').replace(/\s+/g,' ').trim();
+const state={lesson:0,tab:'reading',playing:false,paused:false,token:0,current:-1,vi:false,selectedNote:-1,mode:'build',practiceIndex:0,pool:[],chosen:[],done:new Set()};
+function lesson(){return LESSONS[state.lesson]}
+const recording=$('lessonAudio');
+const formatTime=x=>{if(!Number.isFinite(x))return '0:00'; const n=Math.max(0,Math.floor(x));return `${Math.floor(n/60)}:${String(n%60).padStart(2,'0')}`};
+function cancelAudio(resetHighlight=true){recording.pause();recording.currentTime=0;state.playing=false;state.paused=false;state.current=-1;$('playBtn').textContent='▶ Play';$('scrubber').value='0';$('timeLabel').textContent=`0:00 / ${formatTime(recording.duration)}`;if('speechSynthesis' in window)speechSynthesis.cancel();if(resetHighlight)markSentence(-1);}
+function markSentence(sid){document.querySelectorAll('.sentence.current').forEach(e=>e.classList.remove('current'));state.current=sid;if(sid<0)return;const e=$('transcript').querySelector(`[data-sentence="${sid}"]`);if(e){e.classList.add('current');if($('autofollow').checked&&state.tab==='reading'&&state.lastShown!==sid){state.lastShown=sid;e.scrollIntoView({block:'center',behavior:'smooth'});}}$('audioState').textContent=`${lesson().title} · Sentence ${sid+1} of ${lesson().sentences.length}`;}
+function indexForTime(t){const ss=lesson().sentences;let lo=0,hi=ss.length-1;while(lo<=hi){let mid=(lo+hi)>>1;if(ss[mid].start<=t)lo=mid+1;else hi=mid-1}return Math.max(0,hi)}
+function updatePlayback(){const d=recording.duration||0, t=recording.currentTime||0;const current=indexForTime(t);$('scrubber').value=d?String(Math.round(1000*t/d)):'0';$('timeLabel').textContent=`${formatTime(t)} / ${formatTime(d)}`;const e=$('transcript').querySelector('.sentence.current');if((state.playing || !recording.paused) && (!e||+e.dataset.sentence!==current))markSentence(current);}
+function speakAt(index,single=false){if(state.tab==='practice'){switchTab('reading')};let s=lesson().sentences[index];if(!s)return;recording.pause();recording.currentTime=s.start;state.playing=true;state.paused=false;state.lastShown=-1;state.single=single;state.singleIndex=index;$('playBtn').textContent='Ⅱ Pause';markSentence(index);recording.play().catch(()=>{$('audioState').textContent='Audio playback was blocked. Press Play again.';state.playing=false;$('playBtn').textContent='▶ Play'})}
+$('playBtn').onclick=()=>{if(!recording.paused){recording.pause();state.paused=true;$('playBtn').textContent='▶ Resume';return}if(state.paused){state.paused=false;$('playBtn').textContent='Ⅱ Pause';recording.play();return}if(recording.ended||recording.currentTime>=(recording.duration||Infinity)-.25)recording.currentTime=0;state.playing=true;state.single=false;state.lastShown=-1;$('playBtn').textContent='Ⅱ Pause';recording.play().catch(()=>{$('audioState').textContent='Audio unavailable. Check that both files are next to index.html.';state.playing=false;$('playBtn').textContent='▶ Play'})};
+$('stopBtn').onclick=()=>{cancelAudio();$('audioState').textContent='Stopped.'};
+$('speedSelect').onchange=()=>{recording.playbackRate=Number($('speedSelect').value)};
+$('scrubber').oninput=()=>{if(!Number.isFinite(recording.duration))return;recording.currentTime=(Number($('scrubber').value)/1000)*recording.duration;updatePlayback()};
+recording.addEventListener('loadedmetadata',()=>{$('timeLabel').textContent=`${formatTime(recording.currentTime)} / ${formatTime(recording.duration)}`;});
+recording.addEventListener('timeupdate',()=>{updatePlayback();if(state.single&&recording.currentTime>=(lesson().sentences[state.singleIndex+1]?.start||recording.duration)){recording.pause();state.single=false;state.playing=false;state.paused=false;$('playBtn').textContent='▶ Play';markSentence(-1)}});
+recording.addEventListener('ended',()=>{state.playing=false;state.paused=false;state.single=false;$('playBtn').textContent='▶ Play';markSentence(-1);$('audioState').textContent='Finished.'});
+recording.addEventListener('error',()=>{$('audioState').textContent='Audio file could not be loaded. Please open the complete ZIP folder.'});
+recording.addEventListener('play',()=>{state.playing=true;$('playBtn').textContent='Ⅱ Pause';updatePlayback()});
+recording.addEventListener('pause',()=>{if(state.playing||state.paused)$('playBtn').textContent='▶ Resume'});
+function markInline(sentence,sid){let found=[];const source=sentence.text;lesson().notes.forEach((n,i)=>{const q=source.toLocaleLowerCase().indexOf(n.phrase.toLocaleLowerCase());if(q>=0)found.push({start:q,end:q+n.phrase.length,index:i})});found.sort((a,b)=>a.start-b.start||(b.end-b.start)-(a.end-a.start));let ptr=0,res=''; for(let x of found){if(x.start<ptr)continue;res+=escapeHtml(source.slice(ptr,x.start))+`<span class="colloc" data-note="${x.index}" role="button" tabindex="0" aria-label="Show note for ${escapeHtml(lesson().notes[x.index].phrase)}">${escapeHtml(source.slice(x.start,x.end))}</span>`;ptr=x.end}res+=escapeHtml(source.slice(ptr));return `<span class="sentence" tabindex="0" data-sentence="${sid}" title="Click to hear this sentence">${res}</span>`}
+function renderTranscript(){const d=lesson();let body='',para=-1;d.sentences.forEach((s,i)=>{if(s.para!==para){if(para>=0)body+='</p>';body+='<p class="paragraph">';para=s.para}else body+=' ';body+=markInline(s,i)});if(para>=0)body+='</p>';$('transcript').innerHTML=body}
+function noteMatch(n){const q=$('noteSearch').value.trim().toLowerCase();if(q&&!`${n.phrase} ${n.meaning} ${n.kind} ${n.pattern}`.toLowerCase().includes(q))return false;let f=$('noteFilter').value;if(f==='priority'&&!n.priority)return false;if(f==='phrasal'&&!/phrasal|idiom/i.test(n.kind))return false;if(f==='adverb'&&!/adverb/i.test(n.kind))return false;return true}
+function renderNotes(autoscroll=false){const d=lesson();const results=d.notes.map((n,i)=>({...n,i})).filter(noteMatch);$('notesList').innerHTML=results.map(n=>`<article class="note ${n.i===state.selectedNote?'selected':''}" data-card="${n.i}" tabindex="0" aria-label="Collocation ${escapeHtml(n.phrase)}"><div class="note-top"><h3>${escapeHtml(n.phrase)}</h3><span class="tag ${n.priority?'':'plain'}">${n.priority?'★ Speaking':'Useful'}</span></div><div class="note-label">${escapeHtml(n.kind)}</div><p class="note-english">${escapeHtml(n.meaning)}</p><div class="note-pattern"><b>Pattern:</b> ${escapeHtml(n.pattern)}</div><p class="note-english"><b>Note:</b> ${escapeHtml(n.usage)}</p><p class="note-vi" ${state.vi?'':'hidden'}><b>VI:</b> ${escapeHtml(n.vi)}</p><div class="note-actions"><span class="hint">${String(n.i+1).padStart(2,'0')} / ${d.notes.length}</span><div><button type="button" data-phrase="${n.i}">🔊 Phrase</button> <button type="button" data-jump="${n.i}">↗ In text</button></div></div></article>`).join('')||'<p class="hint">No matching expressions. Try another search.</p>';
+$('notesTotal').textContent=`${d.notes.length} highlighted expressions · ${d.notes.filter(n=>n.priority).length} speaking priorities`;
+if(autoscroll){const el=$('notesList').querySelector('.note.selected');el?.scrollIntoView({block:'nearest',behavior:'smooth'})}}
+function selectNote(i){state.selectedNote=i;renderNotes(true)}
+function findSentenceForNote(i){const d=lesson();return d.sentences.findIndex(s=>s.text.toLowerCase().includes(d.notes[i].phrase.toLowerCase()))}
+function speakPhrase(text){if(!('speechSynthesis' in window))return;recording.pause();if(state.playing){state.paused=true;state.playing=false};speechSynthesis.cancel();const utter=new SpeechSynthesisUtterance(text);utter.lang='en-GB';utter.rate=.88;speechSynthesis.speak(utter)}
+$('transcript').addEventListener('click',e=>{const term=e.target.closest('[data-note]');if(term){selectNote(+term.dataset.note);return}const s=e.target.closest('[data-sentence]');if(s)speakAt(+s.dataset.sentence,true)});
+$('transcript').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){const term=e.target.closest('[data-note]');if(term){e.preventDefault();selectNote(+term.dataset.note);return}const s=e.target.closest('[data-sentence]');if(s){e.preventDefault();speakAt(+s.dataset.sentence,true)}}});
+$('notesList').addEventListener('click',e=>{const p=e.target.closest('[data-phrase]');if(p){e.stopPropagation();const id=+p.dataset.phrase;selectNote(id);speakPhrase(lesson().notes[id].phrase);return}const j=e.target.closest('[data-jump]');if(j){e.stopPropagation();const id=+j.dataset.jump;selectNote(id);$('transcript').querySelector(`[data-note="${id}"]`)?.scrollIntoView({block:'center',behavior:'smooth'});return}const card=e.target.closest('[data-card]');if(card)selectNote(+card.dataset.card)});
+$('notesList').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('.note')){e.preventDefault();selectNote(+e.target.dataset.card)}});
+$('noteSearch').oninput=()=>renderNotes();$('noteFilter').onchange=()=>renderNotes();$('viBtn').onclick=()=>{state.vi=!state.vi;$('viBtn').textContent=state.vi?'Hide Vietnamese notes':'Show Vietnamese notes';renderNotes()};
+function shuffle(a){const out=[...a];for(let i=out.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]]}if(out.length>1&&out.every((p,i)=>p.id===i))out.push(out.shift());return out}
+function chunkify(s){const words=s.split(/\s+/);const chunks=[];let i=0;while(i<words.length){let size=words.length-i<5?words.length-i:Math.min(words.length-i,3+((i+1)%3));chunks.push({text:words.slice(i,i+size).join(' '),id:chunks.length});i+=size}return chunks}
+function showPracticeSentence(){cancelAudio();$('hintText').hidden=true;$('revealText').hidden=true;$('feedback').textContent='';$('feedback').classList.remove('bad');$('typedSentence').value='';state.chosen=[];state.pool=shuffle(chunkify(lesson().sentences[state.practiceIndex].text));$('practiceLabel').textContent=`${lesson().title} · Sentence ${state.practiceIndex+1} of ${lesson().sentences.length}`;$('sentenceSelect').value=String(state.practiceIndex);renderChunks();$('practiceProgress').textContent=`${[...state.done].filter(k=>k.startsWith(lesson().id+':')).length} sentences completed in this lesson`}
+function renderChunks(){const isBuild=state.mode==='build';$('answerZone').hidden=!isBuild;$('chunkBank').hidden=!isBuild;$('typedSentence').hidden=isBuild;$('buildMode').classList.toggle('active',isBuild);$('typeMode').classList.toggle('active',!isBuild);$('answerZone').innerHTML=state.chosen.map(x=>`<button data-remove="${x.id}">${escapeHtml(x.text)}</button>`).join('');$('chunkBank').innerHTML=state.pool.map(x=>`<button data-take="${x.id}">${escapeHtml(x.text)}</button>`).join('')}
+$('chunkBank').onclick=e=>{const b=e.target.closest('[data-take]');if(!b)return;const ix=state.pool.findIndex(x=>x.id===+b.dataset.take);if(ix<0)return;state.chosen.push(state.pool.splice(ix,1)[0]);renderChunks()};
+$('answerZone').onclick=e=>{const b=e.target.closest('[data-remove]');if(!b)return;const ix=state.chosen.findIndex(x=>x.id===+b.dataset.remove);if(ix<0)return;state.pool.push(state.chosen.splice(ix,1)[0]);renderChunks()};
+$('sentenceSelect').onchange=()=>{state.practiceIndex=+$('sentenceSelect').value;showPracticeSentence()};$('buildMode').onclick=()=>{state.mode='build';showPracticeSentence()};$('typeMode').onclick=()=>{state.mode='type';showPracticeSentence()};$('listenSentence').onclick=()=>speakAt(state.practiceIndex,true);
+$('previousBtn').onclick=()=>{state.practiceIndex=Math.max(0,state.practiceIndex-1);showPracticeSentence()};$('nextBtn').onclick=()=>{state.practiceIndex=Math.min(lesson().sentences.length-1,state.practiceIndex+1);showPracticeSentence()};$('clearBtn').onclick=showPracticeSentence;
+$('checkBtn').onclick=()=>{const input=state.mode==='build'?state.chosen.map(x=>x.text).join(' '):$('typedSentence').value;const success=normalize(input)===normalize(lesson().sentences[state.practiceIndex].text);$('feedback').textContent=success?'Correct — sentence matched.':'Not quite. Reorder the chunks or try again.';$('feedback').classList.toggle('bad',!success);if(success)state.done.add(`${lesson().id}:${state.practiceIndex}`);$('practiceProgress').textContent=`${[...state.done].filter(k=>k.startsWith(lesson().id+':')).length} sentences completed in this lesson`};
+$('hintBtn').onclick=()=>{const t=$('hintText');t.hidden=!t.hidden;t.textContent='First three words: '+lesson().sentences[state.practiceIndex].text.split(' ').slice(0,3).join(' ')+' …'};
+$('revealBtn').onclick=()=>{const t=$('revealText');t.hidden=!t.hidden;t.textContent=lesson().sentences[state.practiceIndex].text};
+function renderFlow(){const flows=state.lesson===0?[['Situation','Weekend browsing Instagram'],['Trigger','Friends’ exciting highlights'],['Feeling','Anxiety and comparison'],['Action','Set boundaries; meet in person'],['Reflection','Enjoy the life in front of you']]:[['Situation','News feed before bedtime'],['Habit','One disturbing story after another'],['Impact','Anxiety, lost sleep, distraction'],['Action','Notifications off; selective news'],['Reflection','Stay informed without overload']];$('speakingFlow').innerHTML=flows.map((x,i)=>`<div class="flow-box"><b>${String(i+1).padStart(2,'0')} · ${escapeHtml(x[0])}</b>${escapeHtml(x[1])}</div>`).join('')}
+function switchTab(t){cancelAudio();state.tab=t;$('readingTab').hidden=t!=='reading';$('practiceTab').hidden=t!=='practice';document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===t));if(t==='practice')showPracticeSentence();window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>switchTab(b.dataset.tab));
+function renderLesson(){cancelAudio();const d=lesson();state.selectedNote=-1;state.practiceIndex=0;$('lessonHeading').textContent=`${String(state.lesson+1).padStart(2,'0')} · ${d.title}`;$('countChip').textContent=`${d.notes.length} collocations`;$('cueTitle').textContent=d.cue;$('cuePoints').innerHTML=d.bullets.map(s=>`<li>${escapeHtml(s)}</li>`).join('');$('cueExplain').textContent=d.explain;$('sentenceCount').textContent=`${d.sentences.length} sentences · ${d.sentences.reduce((sum,s)=>sum+s.text.split(/\s+/).length,0)} words`;$('audioState').textContent=`${d.title} · Press Play to hear the original recording.`;recording.src=d.audio;recording.load();recording.playbackRate=Number($('speedSelect').value);$('noteSearch').value='';$('noteFilter').value='all';$('sentenceSelect').replaceChildren(...d.sentences.map((s,i)=>new Option(`Sentence ${i+1} · ${s.text.slice(0,43)}…`,String(i))));document.querySelectorAll('[data-lesson]').forEach(b=>b.classList.toggle('active',b.dataset.lesson===d.id));renderTranscript();renderNotes();renderFlow();if(state.tab==='practice')showPracticeSentence()}
+document.querySelectorAll('[data-lesson]').forEach(b=>b.onclick=()=>{const index=LESSONS.findIndex(l=>l.id===b.dataset.lesson);if(index===state.lesson)return;state.lesson=index;renderLesson()});
+$('resetBtn').onclick=()=>{state.done.clear();state.mode='build';state.practiceIndex=0;showPracticeSentence();$('audioState').textContent='Sentence practice reset.'};
+renderLesson();
+</script></body></html>
